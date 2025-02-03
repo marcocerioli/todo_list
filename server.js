@@ -3,6 +3,7 @@ let http = require("http");
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
+const path = require('path');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
    extended: true
@@ -10,7 +11,6 @@ app.use(bodyParser.urlencoded({
 
 
 
-const path = require('path');
 app.use("/", express.static(path.join(__dirname, "public")));
 
 
@@ -138,23 +138,6 @@ app.delete("/todo/:id", (req, res) => {
     res.json({result: "Ok"});  
  
 })
-
-
-
-setInterval(() => {
-
-    load().then((json) => {
- 
-       todos = json.todos;
- 
-       todoInput.value = "";
- 
-       render();
- 
-    });
- 
- }, 30000);
-
 
 
  

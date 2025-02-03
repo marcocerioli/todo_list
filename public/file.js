@@ -46,10 +46,7 @@ const load = () => {
 
 insertButton.onclick = () => {
 
-    const todo = {
-        name: todoInput.value,
-        completed: false
-    }      
+    const todo = todoInput.value;
  
     send({todo: todo}) // 1. invia la nuova Todo
         .then(() => load()) // 2. caricala nuova lista
